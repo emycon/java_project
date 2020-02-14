@@ -40,21 +40,31 @@ public class MapTest {
         console.close();
     }
 
+    public void testKeySet() {
+        Set<String> keysSet = courses.keySet();
+        for (String crID: keysSet) {
+            Course cr = courses.get(crID);
+            if(cr != null) {
+                System.out.println("课程：" + cr.name);
+            }
+        }
+    }
+
     public void testRemove() {
         //获取从键盘输入的待删除课程 ID 字符串
         Scanner console = new Scanner(System.in);
         while(true){
             //提示输出待删除的课程 ID
             System.out.println("请输入要删除的课程 ID！");
-            String ID = console.next();
+            String crID = console.next();
             //判断该 ID 是否对应的课程对象
-            Course cr = courses.get(ID);
+            Course cr = courses.get(crID);
             if(cr == null) {
                 //提示输入的 ID 并不存在
                 System.out.println("该 ID 不存在！");
                 continue;
             }
-            courses.remove(ID);
+            courses.remove(crID);
             System.out.println("成功删除课程" + cr.name);
             break;
         }
