@@ -1,59 +1,45 @@
-class Animal {
-    //父类方法
-    public void bark() {
-        System.out.println("动物叫！");
-    }
-}
-
-class Dog extends Animal {
-
-    //子类重写父类的bark方法
-    public void bark() {
-        System.out.println("汪、汪、汪！");
-    }
-    //子类自己的方法
-    public void dogType() {
-        System.out.println("这是什么品种的狗？");
-    }
-}
+import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
+    public void testDemo(List<?> s) {
+        for (Object obj : s) {
+            System.out.println("我的类型是" + obj.getClass().getName());
+        }
+    }
 
     public static void main(String[] args) {
-        Animal a = new Animal();
-        Dog d = new Dog();
-        Animal b = new Dog();
-
-        a.bark();
-        b.bark();
-
-        d.bark();
-        d.dogType();
+        Test test = new Test();
+        Dog a0 = new Dog();
+        Animal a1 = new Animal();
+        List<Animal> s = new ArrayList<Animal>();
+        s.add(a0);
+        s.add(a1);
+        test.testDemo(s);
         // Test test = new Test();
-        // test.f(3456);
-        // test.f(34.56f);
-        // test.f("abc");
-        // test.f("abc", "def");
-        // test.f("abc", 3456);
+        // Dog d = new Dog();
+        // Animal a0 = new Animal();
+        // Animal a1 = test.testDemo(a0, d);
+        // System.out.println("我是整数 a，我的类型是" + a1.getClass().getName());
     }
 
     // void f(int i) {
-    //     System.out.println("i=" + i);
+    // System.out.println("i=" + i);
     // }
 
     // void f(float f) {
-    //     System.out.println("f=" + f);
+    // System.out.println("f=" + f);
     // }
 
     // void f(String s) {
-    //     System.out.println("s=" + s);
+    // System.out.println("s=" + s);
     // }
 
     // void f(String s1, String s2) {
-    //     System.out.println("s1+s2="+(s1+s2));
+    // System.out.println("s1+s2="+(s1+s2));
     // }
 
     // void f(String s, int i) {
-    //     System.out.println("s="+s+",i="+i);
+    // System.out.println("s="+s+",i="+i);
     // }
 }

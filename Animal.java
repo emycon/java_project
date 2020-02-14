@@ -1,12 +1,9 @@
-interface Animal {
+/**
+ * InnerAnimal
+ */
+public class Animal {
+    public Animal() {
+        System.out.println("我是动物");
+    }
 
-    // public int legNum;
-
-    // public void bark() {
-    //     System.out.println("动物叫！");
-    // }
-
-    int y = 5;
-    public void eat();
-    public void travel();
 }
