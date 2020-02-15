@@ -1,45 +1,31 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Test {
-    public void testDemo(List<?> s) {
-        for (Object obj : s) {
-            System.out.println("我的类型是" + obj.getClass().getName());
-        }
-    }
 
     public static void main(String[] args) {
-        Test test = new Test();
-        Dog a0 = new Dog();
-        Animal a1 = new Animal();
-        List<Animal> s = new ArrayList<Animal>();
-        s.add(a0);
-        s.add(a1);
-        test.testDemo(s);
-        // Test test = new Test();
-        // Dog d = new Dog();
-        // Animal a0 = new Animal();
-        // Animal a1 = test.testDemo(a0, d);
-        // System.out.println("我是整数 a，我的类型是" + a1.getClass().getName());
+        try {
+            //inFile 作为输入流的数据文件必须存在，否则抛出异常
+            File inFile = new File("/home/project/file1.txt");
+
+            //file2.txt没有，系统可以创建
+            File outFile = new File("file2.txt");
+            FileInputStream fis = new FileInputStream(inFile);
+            FileOutputStream fos = new FileOutputStream(outFile);
+            int c;
+            while((c = fis.read()) != -1){
+                fos.write(c);
+            }
+            //打开了文件一定要记着关，释放系统资源
+            fis.close();
+            fos.close();
+        }catch(FileNotFoundException e) {
+            System.out.println("FileStreamsTest:" + e);
+        }catch(IOException e){
+            System.err.println("FileStreamTest:" + e);
+        }
     }
-
-    // void f(int i) {
-    // System.out.println("i=" + i);
-    // }
-
-    // void f(float f) {
-    // System.out.println("f=" + f);
-    // }
-
-    // void f(String s) {
-    // System.out.println("s=" + s);
-    // }
-
-    // void f(String s1, String s2) {
-    // System.out.println("s1+s2="+(s1+s2));
-    // }
-
-    // void f(String s, int i) {
-    // System.out.println("s="+s+",i="+i);
-    // }
 }
