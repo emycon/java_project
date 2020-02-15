@@ -37,7 +37,7 @@ public class MapTest {
                 continue;
             }
         }
-        console.close();
+        // console.close();
     }
 
     public void testKeySet() {
@@ -50,6 +50,10 @@ public class MapTest {
         }
     }
 
+    /**
+     * 测试删除 Map 中的映射
+     * @param args
+     */
     public void testRemove() {
         //获取从键盘输入的待删除课程 ID 字符串
         Scanner console = new Scanner(System.in);
@@ -68,7 +72,7 @@ public class MapTest {
             System.out.println("成功删除课程" + cr.name);
             break;
         }
-        console.close();
+        // console.close();
     }
 
     public void testEntrySet() {
@@ -102,7 +106,7 @@ public class MapTest {
             System.out.println("修改成功！");
             break;
         }
-        console.close();
+        // console.close();
     }
 
     public static void main(String[] args) {
